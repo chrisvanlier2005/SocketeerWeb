@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    "socketeer" => [
+        'host' => env('SOCKETEER_HOST', ''),
+        'server_key' => env('SOCKETEER_SERVER_KEY', ''),
+        'client_key' => env('SOCKETEER_CLIENT_KEY', ''),
+    ]
+
 ];
