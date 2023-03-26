@@ -9,9 +9,8 @@ class ApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            'server_key' => ['required'],
-            'client_key' => ['required'],
-            'app_name' => ['required'],
+            'app_name' => ['required', 'min:5', 'max:255'],
+            'server' => ['required', 'exists:servers,id'],
             'callback' => ['nullable'],
         ];
     }

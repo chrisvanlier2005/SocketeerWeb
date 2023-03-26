@@ -6,10 +6,10 @@ use App\Models\Application;
 use App\Services\SocketeerService;
 use Livewire\Component;
 
-class ApplicationInfo extends Component
+class ActiveConnectionList extends Component
 {
     public Application $application;
-    public array|null $activeConnections = null;
+    public array $activeConnections = [];
     private SocketeerService $socketeerService;
     public function boot(SocketeerService $socketeerService)
     {
@@ -20,8 +20,9 @@ class ApplicationInfo extends Component
         $this->socketeerService->setServerKey($this->application->server_key);
         $this->activeConnections = $this->socketeerService->getActiveConnections();
     }
+
     public function render()
     {
-        return view('livewire.application-info');
+        return view('livewire.active-connection-list');
     }
 }

@@ -1,8 +1,8 @@
-<nav class="flex justify-evenly  items-center p-5 fixed top-0 w-full z-[50] h-fit">
+<nav class="flex justify-evenly  items-center p-5 fixed top-0 w-full z-[50] h-fit bg-gradient-to-b from-black to-transparentN">
     <div class="text-xl font-semibold">
         Socketeer
     </div>
-    <ul class="flex gap-4 [&>*]:font-semibold">
+    <ul class="flex gap-12 [&>*]:font-semibold">
         <li><a href="#home">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#sdk">SDK</a></li>

@@ -9,6 +9,15 @@ module.exports = {
     ],
     darkMode: 'class',
     theme: {
+        backgroundSize: {
+            'auto': 'auto',
+            'cover': 'cover',
+            'contain': 'contain',
+            '50%': '50%',
+            '200%': '200%',
+            '100%': '100%',
+            '16': '4rem',
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

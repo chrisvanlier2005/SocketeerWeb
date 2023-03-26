@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Server;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,6 +15,7 @@ return new class extends Migration {
             $table->string('client_key');
             $table->string('app_name');
             $table->string('callback')->nullable();
+            $table->foreignIdFor(Server::class);
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
