@@ -18,6 +18,7 @@ class ApplicationController extends Controller
     }
 
     public function show(Application $application){
+        $application->load(["server", "channels"]);
         return view("pages.applications.show", compact("application"));
     }
 
