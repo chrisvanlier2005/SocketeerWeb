@@ -32,4 +32,9 @@ class ApplicationController extends Controller
         $action->handle($request->validated());
         return to_route("applications.index")->with("success", "Application created successfully");
     }
+
+    public function destroy(Application $application){
+        $application->delete();
+        return to_route("applications.index")->with("success", "Application deleted successfully");
+    }
 }

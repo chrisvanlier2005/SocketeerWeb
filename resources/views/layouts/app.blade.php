@@ -15,6 +15,7 @@ class="dark" style="color-scheme: dark">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
+        <script defer src="https://unpkg.com/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body class="font-sans antialiased overflow-x-hidden">
         <x-landing-navigation/>

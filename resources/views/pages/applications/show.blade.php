@@ -30,16 +30,16 @@
                 </div>
             </x-cards.default-card>
             <x-cards.default-card>
-                <h2 class="text-2xl font-medium">Channels</h2>
-                <p class="text-gray-400 text-sm mb-3">Although it's not required to manually set channels, it is recommended in order to keep track of used channels.</p>
-                @foreach($application->channels as $channel)
-                    <div
-                        class="border-b py-2 border-gray-700 text-xs hover:bg-gray-600 cursor-pointer p-3 hover:rounded-md">
-                        {{$channel->name}}
-                    </div>
+                <livewire:channel-menu :channels="$application->channels->toArray()"/>
 
-                @endforeach
-                <x-buttons.light.primary-button class="mt-3">Add Channel</x-buttons.light.primary-button>
+                <x-buttons.light.primary-button
+                    class="mt-3"
+                    x-data=""
+                    x-on:click="$dispatch('open-modal', 'create-modal')"
+                >Add Channel</x-buttons.light.primary-button>
+                <livewire:create-channel-modal :application-id="$application->id">
+                </livewire:create-channel-modal>
+
             </x-cards.default-card>
         </article>
         <article class="flex flex-col gap-3">

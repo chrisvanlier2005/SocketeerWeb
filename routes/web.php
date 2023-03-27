@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\Dashboard\ApplicationController;
 use App\Http\Controllers\Dashboard\OverviewController;
 use App\Http\Controllers\ProfileController;
@@ -21,6 +22,8 @@ Route::view("/", "pages.Index")->name("index");
 Route::group(["middleware" => 'auth'], function () {
     Route::get('/dashboard', OverviewController::class)->name('dashboard');
     Route::resource("/applications", ApplicationController::class);
+
+    Route::post("/applications/{application}/channels", [ChannelController::class, 'store'])->name("channels.store");
 });
 
 Route::middleware('auth')->group(function () {
