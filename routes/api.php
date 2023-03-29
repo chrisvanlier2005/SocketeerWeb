@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => "/integrations", 'controller' => IntegrationController::class], function() {
-
+Route::group(['prefix' => "/integrations",'as' => 'api.integration.' ,'controller' => IntegrationController::class], function() {
+    Route::get("/", "index")->name('index');
 });
