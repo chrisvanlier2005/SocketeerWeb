@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\Dashboard\ApplicationController;
 use App\Http\Controllers\Dashboard\OverviewController;
+use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,8 @@ Route::view("/", "pages.Index")->name("index");
 Route::group(["middleware" => 'auth'], function () {
     Route::get('/dashboard', OverviewController::class)->name('dashboard');
     Route::resource("/applications", ApplicationController::class);
-
     Route::post("/applications/{application}/channels", [ChannelController::class, 'store'])->name("channels.store");
+    Route::get("/integrations", [IntegrationController::class, 'index'])->name("integration.index");
 });
 
 Route::middleware('auth')->group(function () {

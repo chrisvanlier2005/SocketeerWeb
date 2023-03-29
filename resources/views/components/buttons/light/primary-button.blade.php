@@ -1,5 +1,6 @@
-<button type="button"
+<button
         {{$attributes->merge([
+    "type" => "button",
     "class" => "text-white bg-gradient-to-r from-blue-500
 via-blue-600 to-blue-700 hover:bg-gradient-to-br
 focus:ring-2 focus:outline-none focus:ring-blue-300
