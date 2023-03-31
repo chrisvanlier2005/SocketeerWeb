@@ -3,7 +3,7 @@
         <h2 class="text-xl">Hello {{auth()->user()->name}}! 👋</h2>
         <p class="text-gray-400">Lets build the next big thing!</p>
     </section>
-    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+    <x-seperator/>
     <section>
         <header class="mb-12">
             <h1 class="text-3xl font-semibold">Overview</h1>

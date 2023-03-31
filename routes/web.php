@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\Dashboard\ApplicationController;
+use App\Http\Controllers\Dashboard\IntegrationController;
 use App\Http\Controllers\Dashboard\OverviewController;
 use App\Http\Controllers\DocumentationController;
-use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +37,7 @@ Route::middleware('auth')->group(function () {
 
 Route::group(["prefix" => "/documentation", "as" => "documentation."], function () {
     Route::get("/", [DocumentationController::class, 'index'])->name('index');
+    Route::get("/{integration}", [DocumentationController::class, 'showIntegration'])->name("show-integration");
+
 });
 require __DIR__ . '/auth.php';
