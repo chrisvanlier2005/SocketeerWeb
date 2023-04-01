@@ -16,9 +16,20 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="font-sans antialiased bg-gray-900 flex overflow-x-hidden">
+<body class="font-sans antialiased bg-gray-950 overflow-x-hidden">
+<section class="flex items-center justify-between h-12 w-full bg-black fixed top-0 px-5 bg-gray-900 z-50">
+    <h2 class="text-xl font-extrabold text-emerald-500">Socketeer</h2>
+    <div>
+        <img src="{{asset(auth()->user()->avatar)}}" alt="avatar" class="w-9 cursor-pointer rounded-full hover:ring-4 ring-emerald-500/50 transition-all duration-200">
+    </div>
+</section>
+<div class="mt-12"></div>
 <x-dashboard-navigation/>
-<main class="p-4 sm:ml-64 bg-gray-900 w-full min-h-screen">
+@isset($navigation)
+    {{$navigation}}
+@endisset
+<main
+    {{$attributes->merge(["class" => "sm:ml-64 w-full md:w-[calc(100%-16rem)] min-h-screen relative"])}}>
     {{ $slot }}
 </main>
 @livewireScripts

@@ -1,4 +1,4 @@
-<x-dashboard-layout>
+<x-dashboard-layout class="bg-gray-900 p-3">
     <section>
         <h1 class="font-extrabold text-3xl md:text-5xl font-semibold">
             Let's build something

@@ -1,4 +1,4 @@
-<x-dashboard-layout>
+<x-dashboard-layout class="bg-gray-900 p-3">
     <section class="my-4 flex justify-between">
         <h1 class="text-4xl">{{$application->app_name}}</h1>
         <div>
