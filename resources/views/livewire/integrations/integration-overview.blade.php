@@ -11,14 +11,16 @@
                 @if($integration["meta"]["type"] != 'server-side')
                     @continue
                 @endif
-                <div
-                    class="w-full p-6 aspect-square rounded-xl border border-gray-800 hover:bg-gray-800 transition-all duration-200 cursor-pointer">
-                    <img src="{{asset($integration["meta"]["image"])}}" class="w-fit max-w-full h-1/2 object-cover" alt="logo language"/>
-                    <div class="mt-6">
-                        <h2 class="text-4xl font-extrabold capitalize">{{$integration["name"]}}</h2>
-                        <p class="text-gray-400">{{$integration["meta"]["description"]}}</p>
+                <a href="{{route('documentation.show-integration', $integration["name"])}}">
+                    <div
+                        class="w-full p-6 aspect-square rounded-xl border border-gray-800 hover:bg-gray-800 transition-all duration-200 cursor-pointer">
+                        <img src="{{asset($integration["meta"]["image"])}}" class="w-fit max-w-full h-1/2 object-cover" alt="logo language"/>
+                        <div class="mt-6">
+                            <h2 class="text-4xl font-extrabold capitalize">{{$integration["name"]}}</h2>
+                            <p class="text-gray-400">{{$integration["meta"]["description"]}}</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </section>
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -32,6 +34,7 @@
                 @if($integration["meta"]["type"] != 'client-side')
                     @continue
                 @endif
+            <a href="{{route("documentation.show-integration", $integration["name"])}}">
                 <div
                     class="w-full p-6 aspect-square rounded-xl border border-gray-800 hover:bg-gray-800 transition-all duration-200 cursor-pointer">
                     <img src="{{asset($integration["meta"]["image"])}}" class="w-fit max-w-full h-1/2 object-cover"/>
@@ -40,6 +43,7 @@
                         <p class="text-gray-400">{{$integration["meta"]["description"]}}</p>
                     </div>
                 </div>
+            </a>
             @endforeach
         </section>
 

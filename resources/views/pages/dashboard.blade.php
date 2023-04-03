@@ -5,10 +5,10 @@
         relative
         flex gap-12
         inner-border-bottom-1
-        items-center bg-gray-900
+        items-center bg-gray-900 z-0
         ">
             {{-- HEADER INTRO SECTION --}}
-            <section class="relative z-1 flex gap-12 items-center">
+            <section class="relative z-5 flex gap-12 items-center">
                 <img src="{{asset(auth()->user()->avatar)}}" class="w-16 rounded-full"
                      alt="{{auth()->user()->name}}'s avatar" loading="lazy"/>
                 <div class="flex flex-col gap-0">
@@ -19,7 +19,7 @@
             {{-- END HEADER INTRO SECTION --}}
 
             {{-- BACKGROUND RADIAL GRADIENT --}}
-            <div class="absolute top-0 left-0 w-full h-full radial-gradient-1"></div>
+            <div class="absolute top-0 left-0 z-[-1] w-full h-full radial-gradient-1"></div>
             {{-- END BACKGROUND RADIAL GRADIENT --}}
         </nav>
     </x-slot:navigation>
@@ -33,7 +33,7 @@
     >
 
         <section class="md:h-[30rem] grid md:grid-cols-5 md:grid-rows-2 w-full gap-5 p-4">
-            <x-cards.card class="md:col-span-3 row-span-2 group shadow-xl">
+            <x-cards.card class="md:col-span-3 h-full row-span-2 group shadow-xl">
                 <div>
                     <x-cards.vertical-border class="
                 h-1/2 left-0 top-36
@@ -51,10 +51,14 @@
                     <p><span class="font-extrabold">{{$applications_count}}</span> <span class="text-gray-400">Apps total</span></p>
                 </header>
                 <x-seperator class="my-2"/>
-                <article class="w-full h-[87%] rounded-2xl p-4 bg-gray-900">
-                    @isset($application_activity)
+                <article class="w-full rounded-2xl p-4 bg-gray-900">
+                    @if(isset($application_activity) && !empty($application_activity))
+                        @foreach($application_activity as $activity)
+                            <p>{{$activity->application->app_name}} / {{$activity->data}}</p>
+                        @endforeach
                     @else
-                        <p class="text-gray-400">No recorded application activity</p>
+                        <p class="text-gray-400">No recorded application activity - It's time to start building your app!</p>
+
                     @endisset
                 </article>
             </x-cards.card>

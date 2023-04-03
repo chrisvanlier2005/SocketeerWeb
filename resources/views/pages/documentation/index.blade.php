@@ -27,7 +27,8 @@
                     <ul class="space-y-2">
                         <h4 class="capitalize inter font-medium text-lg">{{Str::replace('-', ' ',$category)}}</h4>
                         @foreach($integrations as $integration)
-                            <x-side-navigation-item href="{{route('documentation.show-integration')}}">
+                            <x-side-navigation-item
+                                href="{{route('documentation.show-integration', $integration['name'])}}">
                                 <x-slot:logo>
                                     <img src="{{$integration["meta"]["image"]}}" alt="{{$integration["name"]}} logo"
                                          class="w-7 rounded-sm p-1">
@@ -51,9 +52,9 @@
     {{-- END SIDEBAR CONTAINER --}}
 
     {{-- MAIN CONTENT --}}
-    <div class="sm:ml-64 p-4">
-        <section class="flex">
-            <h1>Test</h1>
+    <div class="sm:ml-64 p-4 bg-gray-900 min-h-screen w-full ">
+        <section class=" prose prose-invert">
+            {!! $html ?? "" !!}
         </section>
     </div>
 </x-documentation-layout>
